@@ -2,12 +2,10 @@ package com.example.noanandroidapplication
 
 object MovieList {
     val MOVIE_CATEGORY = arrayOf(
-            "Category Zero",
-            "Category One",
-            "Category Two",
-            "Category Three",
-            "Category Four",
-            "Category Five")
+            "Entrée analogique",
+            "Entrée externes (HDMI)",
+            "Sources IP"
+            )
 
     val list: List<Movie> by lazy {
         setupMovies()

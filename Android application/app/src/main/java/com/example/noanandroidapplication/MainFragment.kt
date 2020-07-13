@@ -221,7 +221,7 @@ class MainFragment : BrowseFragment() {
         private val BACKGROUND_UPDATE_DELAY = 300
         private val GRID_ITEM_WIDTH = 200
         private val GRID_ITEM_HEIGHT = 200
-        private val NUM_ROWS = 6
+        private val NUM_ROWS = 3
         private val NUM_COLS = 15
     }
 }
