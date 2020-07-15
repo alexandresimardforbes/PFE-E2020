@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.27.0"
+    "express-handlebars": "^5.0.0",
+    "moment": "^2.27.0",
+    "uuid": "^8.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
