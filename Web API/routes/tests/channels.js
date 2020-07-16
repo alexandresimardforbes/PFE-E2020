@@ -3,10 +3,34 @@ const router = express.Router();
 const uuid = require('uuid');
 const channels = require('../../Channels');
 
-// GET all channels
+
+
+/**
+ * @swagger
+ * /api/channels:
+ *   get:
+ *     description: Returns a list of channels
+ *     responses:
+ *       200:
+ *         description: Request successful
+ */
 router.get('/', (req, res) => res.json(channels));
 
-// GET single channel
+/**
+ * @swagger
+ * /api/channels/{channelNumber}:
+ *   get:
+ *     parameters:
+ *      - in: path
+ *        name: channelNumber
+ *        schema:
+ *         type: string
+ *        required: true 
+ *     description: Returns a list of channels        
+ *     responses:
+ *       200:
+ *         description: Request successful
+ */
 router.get('/:channelNumber', (req, res) => {
     const found = channels.some(channel => channel.channelNumber === req.params.channelNumber);
     
