@@ -14,6 +14,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.0.0",
     "moment": "^2.27.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
