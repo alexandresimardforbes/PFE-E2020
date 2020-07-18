@@ -50,7 +50,8 @@ $ npm run dev
 2020-07-17 - README.md version 1.0.0
 
 ## Tests 
-//TODO
+
+We added unit testings for our HTTP Request via our web API. 
 
 ## Team
 
