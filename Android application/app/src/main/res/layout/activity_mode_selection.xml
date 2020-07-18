@@ -17,14 +17,14 @@
 
 
         <Button
-            android:id="@+id/buttonAnalog"
+            android:id="@+id/activity_mode_analog_btn"
             android:layout_width="500dp"
             android:layout_height="match_parent"
             android:layout_weight=".50"
             android:text="Télévision analogique" />
 
         <Button
-            android:id="@+id/buttonIpTv"
+            android:id="@+id/activity_mode_iptv_btn"
             android:layout_width="500dp"
             android:layout_height="match_parent"
             android:layout_weight=".50"
@@ -38,14 +38,14 @@
         android:layout_weight=".50">
 
         <Button
-            android:id="@+id/buttonNoan"
+            android:id="@+id/activity_mode_noan_btn"
             android:layout_width="500dp"
             android:layout_height="match_parent"
             android:layout_weight=".50"
             android:text="NOAN" />
 
         <Button
-            android:id="@+id/buttonWeb"
+            android:id="@+id/activity_mode_web_btn"
             android:layout_width="500dp"
             android:layout_height="match_parent"
             android:layout_weight=".50"
@@ -53,7 +53,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonBack"
+        android:id="@+id/activity_mode_back_btn"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
