@@ -103,9 +103,9 @@ router.post('/', (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               channelNumber:
- *                 type: string
  *               name:
+ *                 type: string
+ *               genre:
  *                 type: string
  *     responses:
  *       200:
@@ -127,7 +127,7 @@ router.put('/:channelNumber', (req, res) => {
         });
 
     } else {
-        res.status(400).json({msg: 'No channel ' + req.params.channelNumber})
+        res.status(404).send('No channel ' + req.params.channelNumber)
     } 
 });
 
@@ -152,7 +152,7 @@ router.delete('/:channelNumber', (req, res) => {
     if(found) {
         res.json({ msg: 'Channel removed', channels : channels.filter(channel => channel.channelNumber !== req.params.channelNumber)})
     } else {
-        res.status(400).json({msg: 'No channel ' + req.params.channelNumber})
+        res.status(404).send('No channel ' + req.params.channelNumber)
     } 
 });
 
