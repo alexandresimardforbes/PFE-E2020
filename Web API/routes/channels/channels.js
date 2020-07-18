@@ -1,7 +1,8 @@
-const express = require('express');
+const express = require('../../node_modules/express');
 const router = express.Router();
-const uuid = require('uuid');
-const channels = require('../../Channels');
+const uuid = require('../../node_modules/uuid');
+const channels = require('../../models/Channels');
+const { response } = require('../../node_modules/express');
 
 
 
@@ -35,9 +36,9 @@ router.get('/:channelNumber', (req, res) => {
     const found = channels.some(channel => channel.channelNumber === req.params.channelNumber);
     
     if(found) {
-        res.json(channels.filter(channel => channel.channelNumber === req.params.channelNumber))
+        res.json(channels.find(channel => channel.channelNumber === req.params.channelNumber))
     } else {
-        res.status(400).json({msg: 'No channel ' + req.params.channelNumber})
+        res.status(404).send('No channel ' + req.params.channelNumber)
     } 
 });
 
@@ -61,8 +62,8 @@ router.get('/:channelNumber', (req, res) => {
  *               genre: 
  *                 type: string
  *     responses:
- *       200:
- *         description: Request successful
+ *       201:
+ *         description: Request successful and a resource has been created
  *       400:
  *         description: The channel number and the channel are required.
  */
@@ -75,11 +76,12 @@ router.post('/', (req, res) => {
     }
 
     if(!addedChannel.channelNumber || !addedChannel.name) {
-        res.status(400).json({ msg: 'Channel number and channel name needed'})
+        res.status(400).send('Channel number and channel name needed');
     } else {
         channels.push(addedChannel);
+        response.status(201);
+        res.json(channels);
     }
-    res.json(channels);
 });
 
 /**
@@ -101,9 +103,9 @@ router.post('/', (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               channelNumber:
- *                 type: string
  *               name:
+ *                 type: string
+ *               genre:
  *                 type: string
  *     responses:
  *       200:
@@ -125,7 +127,7 @@ router.put('/:channelNumber', (req, res) => {
         });
 
     } else {
-        res.status(400).json({msg: 'No channel ' + req.params.channelNumber})
+        res.status(404).send('No channel ' + req.params.channelNumber)
     } 
 });
 
@@ -150,7 +152,7 @@ router.delete('/:channelNumber', (req, res) => {
     if(found) {
         res.json({ msg: 'Channel removed', channels : channels.filter(channel => channel.channelNumber !== req.params.channelNumber)})
     } else {
-        res.status(400).json({msg: 'No channel ' + req.params.channelNumber})
+        res.status(404).send('No channel ' + req.params.channelNumber)
     } 
 });
 
