@@ -20,7 +20,7 @@ class MainActivity2 : Activity() {
             Toast.makeText(this@MainActivity2,  R.string.app_name, Toast.LENGTH_LONG).show()
 
             //on lance l'activité grâce à un intent
-            val modeActivityIntent = Intent(this, ModeActivity::class.java)
+            val modeActivityIntent = Intent(this, ModeSelectionActivity::class.java)
             startActivity(modeActivityIntent)
 
 

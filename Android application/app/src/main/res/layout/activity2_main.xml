@@ -15,7 +15,7 @@
         android:padding="30dp"
         android:gravity="center"
         android:textSize="32dp"
-        android:text="Bienvenue dans Noan!" />
+        android:text="Bienvenue dans l'application Noan!" />
 
     <Button
         android:id="@+id/activity_main_modes_btn"
