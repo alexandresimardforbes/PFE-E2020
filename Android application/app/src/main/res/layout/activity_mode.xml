@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="controller.ModeActivity"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight=".50">
+
+
+
+        <Button
+            android:id="@+id/buttonAnalog"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".50"
+            android:text="Télévision analogique" />
+
+        <Button
+            android:id="@+id/buttonIpTv"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".50"
+            android:text="Télévision Ip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight=".50">
+
+        <Button
+            android:id="@+id/buttonNoan"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".50"
+            android:text="NOAN" />
+
+        <Button
+            android:id="@+id/buttonWeb"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".50"
+            android:text="Web" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:text="Retour" />
+
+
+</LinearLayout>

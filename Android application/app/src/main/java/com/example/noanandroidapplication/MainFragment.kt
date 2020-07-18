@@ -47,6 +47,7 @@ class MainFragment : BrowseFragment() {
     private var mBackgroundTimer: Timer? = null
     private var mBackgroundUri: String? = null
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.i(TAG, "onCreate")
         super.onActivityCreated(savedInstanceState)
@@ -59,6 +60,7 @@ class MainFragment : BrowseFragment() {
 
         setupEventListeners()
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
