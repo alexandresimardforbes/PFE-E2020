@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:padding="30dp"
         android:layout_gravity="center_horizontal"
-        android:text="Modes"
+        android:text="Entrer"
         />
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_marginTop="20dp"
         android:padding="30dp"
         android:layout_gravity="center_horizontal"
-        android:text="Exit"
+        android:text="Sortir"
         />
 
 
