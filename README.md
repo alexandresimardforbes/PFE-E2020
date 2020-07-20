@@ -19,7 +19,11 @@
 
 ## Applications
 
-//TODO
+### Web api/noan mockup
+
+Notre application web déployé sur la plateforme Heroku contient un site web mockup de NOAN par AzurDev et les requêtes de notre API.
+
+**URL :** <a href="https://pfe-e2020-noan.herokuapp.com/" target="_blank">**Application web**</a> 
 
 ## Installation
 
@@ -47,7 +51,8 @@ $ npm run dev
 
 ## Log
 
-2020-07-17 - README.md version 1.0.0
+- 2020-07-17 - README.md version 1.0.0
+- 2020-07-20 - Web app release 1.0.0 on Heroku
 
 ## Tests 
 
@@ -69,13 +74,17 @@ We added unit testings for our HTTP Request via our web API.
     - Via Slack : `https://app.getpostman.com/join-team?invite_code=ad61fc8a1ff2dc997c421f20831bdcf0`
     
 - **Lien pour la documentation Swagger**
+
+    Local host : 
     - Activer cette commande en localhost 
     ```shell
     $ npm run dev
     ```
     - Aller sur le lien suivant : `http://localhost:5000/api-docs/#/`
     
-  
+    Web :
+    - **URL :** <a href="https://pfe-e2020-noan.herokuapp.com/api-docs/#/default" target="_blank">Online swagger docs</a>
+    
 ## License
 //TODO
 
