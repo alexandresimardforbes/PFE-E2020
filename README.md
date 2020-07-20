@@ -19,7 +19,7 @@
 
 ## Applications
 
-### Web api/noan mockup
+### Application web
 
 Notre application web déployé sur la plateforme Heroku contient un site web mockup de NOAN par AzurDev et les requêtes de notre API.
 
@@ -71,7 +71,7 @@ We added unit testings for our HTTP Request via our web API.
     - Via Slack : `pfe021ete2020-cts8981.slack.com`
 
 - **Lien pour le postman d'équipe**
-    - Via Slack : `https://app.getpostman.com/join-team?invite_code=ad61fc8a1ff2dc997c421f20831bdcf0`
+    - **URL** : `https://app.getpostman.com/join-team?invite_code=ad61fc8a1ff2dc997c421f20831bdcf0`
     
 - **Lien pour la documentation Swagger**
 
