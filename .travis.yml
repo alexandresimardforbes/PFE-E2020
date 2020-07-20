@@ -19,4 +19,4 @@ jobs:
         api_key:
           secure: d063137a-9f41-41d1-978b-eec97c3c834d
         app: web-api
-        on: webmasterheroku
+        on: webapimaster
