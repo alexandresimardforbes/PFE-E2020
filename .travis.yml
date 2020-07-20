@@ -17,6 +17,6 @@ jobs:
       deploy:
         provider: heroku
         api_key:
-          secure: d063137a-9f41-41d1-978b-eec97c3c834d
+          secure: a9fb9863-2308-4e74-bcda-87ce4b54dd00
         app: web-api
         on: webapimaster
