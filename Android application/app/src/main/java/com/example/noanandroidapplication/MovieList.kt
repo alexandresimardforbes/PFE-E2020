@@ -3,7 +3,7 @@ package com.example.noanandroidapplication
 object MovieList {
     val MOVIE_CATEGORY = arrayOf(
             "Entrée analogique",
-            "Entrée externes (HDMI)",
+            "Entrées externes (HDMI)",
             "Sources IP"
             )
 

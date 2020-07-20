@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/activity_web_frame_page_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Back"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/activity_web_frame_page_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="forward"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/activity_web_frame_page_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="home"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:id="@+id/activity_main_name_input"
+            android:layout_width="483dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="https://www.google.com/"/>
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/activity_web_frame_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>
