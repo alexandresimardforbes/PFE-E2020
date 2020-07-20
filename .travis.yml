@@ -19,4 +19,4 @@ jobs:
         api_key:
           secure: 3aa3d8b6-9a22-49db-bb97-2c7fa1d6a847
         app: web-api
-        on: webapimaster
+        on: PFE-E2020\web-api
