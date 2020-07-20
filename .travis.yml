@@ -1,0 +1,14 @@
+os:
+  - linux
+language: node_js
+node_js:
+  - 10
+dist: xenial
+
+before_install: cd web-api
+
+jobs:
+  include:
+  
+    - name: test web api
+      script: npm run test
