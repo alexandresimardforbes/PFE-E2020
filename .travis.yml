@@ -5,9 +5,10 @@ node_js:
   - 10
 dist: xenial
 
+before_install: cd web-api
+
 jobs:
   include:
-    - name: test
-      script: 
-       - cd web-api
-       - npm run test
+    - name: test web api
+      before_script: cd web-api
+      script: npm run test
