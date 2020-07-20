@@ -8,4 +8,6 @@ dist: xenial
 jobs:
   include:
     - name: test
-      script: npm test
+      script: 
+        cd web-api
+        npm run test
