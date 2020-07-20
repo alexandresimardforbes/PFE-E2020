@@ -4,3 +4,8 @@ language: node_js
 node_js:
   - 10
 dist: xenial
+
+jobs:
+  include:
+    - name: test
+      script: npm test
