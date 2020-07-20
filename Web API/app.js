@@ -1,3 +1,6 @@
+
+//heroku testing
+
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -9,16 +12,16 @@ const channels = require('./models/Channels');
 const app = express();
 
 const swaggerOptions = {
-    definition: {
-      openapi: '3.0.0', 
-      info: {
-        title: 'Web api for NOAN mockup', 
-        version: '1.0.0',
-      },
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Web api for NOAN mockup',
+      version: '1.0.0',
     },
-    // Path to the API docs
-    apis: ['./routes/channels/*.js'],
-  };
+  },
+  // Path to the API docs
+  apis: ['./routes/channels/*.js'],
+};
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
@@ -28,12 +31,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //TODO finish adding Handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 //Body parser middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 //Init middleware
 app.use(logger);

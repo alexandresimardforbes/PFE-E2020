@@ -34,12 +34,12 @@ router.get('/', (req, res) => res.json(channels));
  */
 router.get('/:channelNumber', (req, res) => {
     const found = channels.some(channel => channel.channelNumber === req.params.channelNumber);
-    
-    if(found) {
+
+    if (found) {
         res.json(channels.find(channel => channel.channelNumber === req.params.channelNumber))
     } else {
         res.status(404).send('No channel ' + req.params.channelNumber)
-    } 
+    }
 });
 
 /**
@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
         genre: req.body.genre
     }
 
-    if(!addedChannel.channelNumber || !addedChannel.name) {
+    if (!addedChannel.channelNumber || !addedChannel.name) {
         res.status(400).send('Channel number and channel name needed');
     } else {
         channels.push(addedChannel);
@@ -115,20 +115,20 @@ router.post('/', (req, res) => {
  */
 router.put('/:channelNumber', (req, res) => {
     const found = channels.some(member => member.channelNumber === req.params.channelNumber);
-    
-    if(found) {
+
+    if (found) {
         const modChannel = req.body;
         channels.forEach(channel => {
-            if(channel.channelNumber === req.params.channelNumber) {
+            if (channel.channelNumber === req.params.channelNumber) {
                 channel.name = modChannel.name ? modChannel.name : req.body.name;
                 channel.genre = modChannel.genre ? modChannel.genre : req.body.genre;
-                res.json({ msg: 'the channel as been modified.', channel})
+                res.json({ msg: 'the channel as been modified.', channel })
             }
         });
 
     } else {
         res.status(404).send('No channel ' + req.params.channelNumber)
-    } 
+    }
 });
 
 /**
@@ -149,11 +149,11 @@ router.put('/:channelNumber', (req, res) => {
 router.delete('/:channelNumber', (req, res) => {
 
     const found = channels.some(channel => channel.channelNumber === req.params.channelNumber);
-    if(found) {
-        res.json({ msg: 'Channel removed', channels : channels.filter(channel => channel.channelNumber !== req.params.channelNumber)})
+    if (found) {
+        res.json({ msg: 'Channel removed', channels: channels.filter(channel => channel.channelNumber !== req.params.channelNumber) })
     } else {
         res.status(404).send('No channel ' + req.params.channelNumber)
-    } 
+    }
 });
 
 module.exports = router;

@@ -19,8 +19,8 @@ describe('Channels API', () => {
                     response.should.have.status(200);
                     response.body.should.a('array');
                     response.body.length.should.be.eq(channels.length);
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should NOT GET all the channels', (done) => {
@@ -29,8 +29,8 @@ describe('Channels API', () => {
                 .end((err, response) => {
                     response.should.have.status(404);
 
-            done();
-            });
+                    done();
+                });
         });
     });
 
@@ -46,8 +46,8 @@ describe('Channels API', () => {
                     response.body.should.have.property('channelNumber');
                     response.body.should.have.property('name');
                     response.body.should.have.property('genre');
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should GET a channel by channel number', (done) => {
@@ -58,8 +58,8 @@ describe('Channels API', () => {
                     response.should.have.status(404);
                     response.text.should.be.eq('No channel ' + channelNumber)
 
-            done();
-            });
+                    done();
+                });
         });
     });
 
@@ -79,8 +79,8 @@ describe('Channels API', () => {
                     response.should.have.status(201);
                     response.body.should.a('array');
                     response.body.length.should.be.eq(channelLenght + 1);
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should POST a new channel without a genre', (done) => {
@@ -96,13 +96,13 @@ describe('Channels API', () => {
                     response.should.have.status(201);
                     response.body.should.a('array');
                     response.body.length.should.be.eq(channelLenght + 1);
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should NOT POST a new channel cause the name is missing', (done) => {
             const channelLenght = channels.length;
-            const channel = {     
+            const channel = {
                 channelNumber: '99',
                 genre: 'Travel'
             };
@@ -110,15 +110,15 @@ describe('Channels API', () => {
                 .post("/api/channels")
                 .send(channel)
                 .end((err, response) => {
-                    response.should.have.status(400); 
+                    response.should.have.status(400);
                     response.text.should.be.eq('Channel number and channel name needed');
-                done();
-            });
+                    done();
+                });
         });
 
         it('It should NOT POST a new channel cause the channel number is missing', (done) => {
             const channelLenght = channels.length;
-            const channel = {     
+            const channel = {
                 name: 'VVT',
                 genre: 'Travel'
             };
@@ -126,25 +126,25 @@ describe('Channels API', () => {
                 .post("/api/channels")
                 .send(channel)
                 .end((err, response) => {
-                    response.should.have.status(400); 
+                    response.should.have.status(400);
                     response.text.should.be.eq('Channel number and channel name needed');
-                done();
-            });
+                    done();
+                });
         });
 
         it('It should NOT POST a new channel cause the channel number and the name are missing', (done) => {
             const channelLenght = channels.length;
-            const channel = {     
+            const channel = {
                 genre: 'Travel'
             };
             chai.request(server)
                 .post("/api/channels")
                 .send(channel)
                 .end((err, response) => {
-                    response.should.have.status(400); 
+                    response.should.have.status(400);
                     response.text.should.be.eq('Channel number and channel name needed');
-                done();
-            });
+                    done();
+                });
         });
     });
 
@@ -152,7 +152,7 @@ describe('Channels API', () => {
     describe('PUT /api/channels/:channelNumber', () => {
         it('It should PUT (modify) a new channel', (done) => {
             const channelNumber = 33;
-            const channelMod = {               
+            const channelMod = {
                 name: 'SPORTFM',
                 genre: 'Sport radio'
             };
@@ -165,13 +165,13 @@ describe('Channels API', () => {
                     response.body.should.have.property('msg').eq('the channel as been modified.');
                     response.body.should.have.property('channel').property('name').eq('SPORTFM');
                     response.body.should.have.property('channel').property('genre').eq('Sport radio');
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should NOT PUT (modify) a new channel because of a wrong channel number', (done) => {
             const channelNumber = 777;
-            const channelMod = {               
+            const channelMod = {
                 name: 'SPORTFM',
                 genre: 'Sport radio'
             };
@@ -181,8 +181,8 @@ describe('Channels API', () => {
                 .end((err, response) => {
                     response.should.have.status(404);
                     response.text.should.be.eq('No channel ' + channelNumber)
-            done();
-            });
+                    done();
+                });
         });
     });
 
@@ -194,8 +194,8 @@ describe('Channels API', () => {
                 .delete("/api/channels/" + channelNumber)
                 .end((err, response) => {
                     response.should.have.status(201);
-            done();
-            });
+                    done();
+                });
         });
 
         it('It should not DELETE a channel by channel number', (done) => {
@@ -205,8 +205,8 @@ describe('Channels API', () => {
                 .end((err, response) => {
                     response.should.have.status(404);
                     response.text.should.be.eq('No channel ' + channelNumber)
-            done();
-            });
+                    done();
+                });
         });
     });
 });
