@@ -9,5 +9,5 @@ jobs:
   include:
     - name: test
       script: 
-        cd web-api
-        npm run test
+       - cd web-api
+       - npm run test
