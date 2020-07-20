@@ -9,6 +9,6 @@ before_install: cd web-api
 
 jobs:
   include:
+  
     - name: test web api
-      before_script: cd web-api
       script: npm run test
