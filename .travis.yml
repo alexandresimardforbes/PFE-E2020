@@ -9,6 +9,14 @@ before_install: cd web-api
 
 jobs:
   include:
-  
+
     - name: test web api
       script: npm run test
+
+    - name: deploy
+      deploy:
+        provider: heroku
+        api_key:
+          secure: d063137a-9f41-41d1-978b-eec97c3c834d
+        app: web-api
+        on: webmasterheroku
