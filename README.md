@@ -1,7 +1,6 @@
 <a href="https://www.etsmtl.ca/"><img src="https://www.etsmtl.ca/getmedia/e5def190-3637-4f1a-8409-84d1c683bdbf/ETS-noir-devise-ecran" title="ETS" alt="ETS"></a>
 
 # PFE-E2020 - Plateforme IPTV - Box Android
-[![Build Status](https://travis-ci.com/alexandresimardforbes/PFE-E2020.svg?token=qFfiYy7DkftyCmyguegr&branch=webapimaster)](https://travis-ci.com/alexandresimardforbes/PFE-E2020)
 
 > L’objectif du projet est de faire une preuve de concept pour AzurDev. Cette preuve de concept est faite pour démontrer qu’une boîte AndroidTv répond à toutes les demandes de leur système de télévision (NOAN).
 
@@ -21,6 +20,7 @@
 ## Applications
 
 ### Application web
+[![Build Status](https://travis-ci.com/alexandresimardforbes/PFE-E2020.svg?token=qFfiYy7DkftyCmyguegr&branch=webapimaster)](https://travis-ci.com/alexandresimardforbes/PFE-E2020)
 
 Notre application web déployé sur la plateforme Heroku contient un site web mockup de NOAN par AzurDev et les requêtes de notre API.
 
