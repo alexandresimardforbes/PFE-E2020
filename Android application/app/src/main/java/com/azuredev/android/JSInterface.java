@@ -8,8 +8,10 @@ import android.widget.Toast;
 
 public class JSInterface {
     Context mContext;
-    JSInterface(Context c){
+    HAL hal;
+    JSInterface(Context c, HAL hal){
         mContext = c;
+        this.hal = hal;
     }
 
     @JavascriptInterface
@@ -30,4 +32,9 @@ public class JSInterface {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         return sharedPreferences.getString(key, "");
     }
+
+    public String getRemoteValue() {
+        return hal.getRemoteValue();
+    }
+
 }

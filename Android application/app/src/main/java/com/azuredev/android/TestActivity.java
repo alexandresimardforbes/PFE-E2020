@@ -9,6 +9,7 @@ import com.example.noanandroidapplication.R;
 
 public class TestActivity extends Activity {
     private TextView text;
+    public String keyValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,12 @@ public class TestActivity extends Activity {
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         text.setText("" + event.getKeyCode());
+        keyValue =  "" +event.getKeyCode();
 //        return super.dispatchKeyEvent(event);
         return  false;
+    }
+
+    public String getRemoteValue() {
+        return this.keyValue;
     }
 }
