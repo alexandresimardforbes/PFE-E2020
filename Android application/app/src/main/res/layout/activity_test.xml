@@ -13,4 +13,11 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="184dp"
         tools:layout_editor_absoluteY="134dp" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="242dp"
+        android:layout_height="233dp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="436dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
