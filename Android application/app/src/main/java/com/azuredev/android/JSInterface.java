@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.webkit.JavascriptInterface;
-import android.widget.Toast;
 
 public class JSInterface {
     Context mContext;
@@ -12,11 +11,6 @@ public class JSInterface {
     JSInterface(Context c, HAL hal){
         mContext = c;
         this.hal = hal;
-    }
-
-    @JavascriptInterface
-    public void showToast(String message){
-        Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
     }
 
     @JavascriptInterface
@@ -33,8 +27,12 @@ public class JSInterface {
         return sharedPreferences.getString(key, "");
     }
 
+    @JavascriptInterface
     public String getRemoteValue() {
         return hal.getRemoteValue();
     }
+
+    @JavascriptInterface
+    public String getUID() { return hal.getUID();}
 
 }
