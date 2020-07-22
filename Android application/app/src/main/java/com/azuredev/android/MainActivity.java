@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         fakeHAL fake = new fakeHAL();
         myWebView.addJavascriptInterface(new JSInterface(this, fake), "Android"); //You will access this via Android.method(args);
 
-        myWebView.loadUrl("https://www.noan.com"); // todo Load local web page
+        myWebView.loadUrl("http://192.168.2.81:5000"); // todo Load local web page
 
 //        myWebView.loadUrl("javascript: var result = window.Android.FetchJavaData(); window.DoStuff(result)");
     }
