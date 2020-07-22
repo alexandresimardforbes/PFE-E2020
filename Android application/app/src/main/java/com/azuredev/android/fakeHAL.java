@@ -5,4 +5,9 @@ public class fakeHAL extends HAL {
     public String getRemoteValue() {
         return "bidon";
     }
+
+    @Override
+    public String getUID() {
+        return "Fake MAC";
+    }
 }
