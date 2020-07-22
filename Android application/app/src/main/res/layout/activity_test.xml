@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.azuredev.android.TestActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="242dp"
+        android:layout_height="233dp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="450dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
