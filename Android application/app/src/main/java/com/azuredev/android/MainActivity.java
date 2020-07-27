@@ -40,7 +40,8 @@ public class MainActivity extends Activity {
         myWebView.addJavascriptInterface(new JSInterface(this, fake), "Android"); //You will access this via Android.method(args);
 
         myWebView.setBackgroundColor(Color.TRANSPARENT);
-        myWebView.loadUrl("http://192.168.0.16:5000");
+        //myWebView.loadUrl("http://192.168.0.16:5000"); // localhost (Charles)
+        myWebView.loadUrl("https://pfe-e2020-noan.herokuapp.com/"); // site heroku
 
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
         client.onCreate((Context) this, videoView);
@@ -49,7 +50,7 @@ public class MainActivity extends Activity {
 
         hideSystemUI();
         updateUI();
-        generateUniqueId();
+        generateUniqueID();
     }
 
     @Override
@@ -78,7 +79,7 @@ public class MainActivity extends Activity {
 
     public void updateUI() {
         final View decorView = getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener (new View.OnSystemUiVisibilityChangeListener() {
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
             public void onSystemUiVisibilityChange(int visibility) {
                 hideSystemUI();
@@ -103,7 +104,7 @@ public class MainActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void generateUniqueId() {
+    public void generateUniqueID() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String value = sharedPreferences.getString("uuid_key", "");
         if (TextUtils.isEmpty(value)) {
@@ -111,8 +112,6 @@ public class MainActivity extends Activity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("uuid_key", uuid);
             editor.commit();
-
         }
     }
-
 }

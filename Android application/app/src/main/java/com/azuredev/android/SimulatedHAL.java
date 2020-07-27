@@ -14,6 +14,6 @@ public class SimulatedHAL implements HAL {
 
     @Override
     public String getUID(String uniqueID) {
-            return uniqueID;
+        return uniqueID;
     }
 }

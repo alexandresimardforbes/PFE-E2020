@@ -8,13 +8,14 @@ import android.webkit.JavascriptInterface;
 public class JSInterface {
     Context mContext;
     HAL hal;
-    JSInterface(Context c, HAL hal){
+
+    JSInterface(Context c, HAL hal) {
         mContext = c;
         this.hal = hal;
     }
 
     @JavascriptInterface
-    public void SavePreferences(String key, String value){
+    public void SavePreferences(String key, String value) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
@@ -22,7 +23,7 @@ public class JSInterface {
     }
 
     @JavascriptInterface
-    public String LoadPreferences(String key){
+    public String LoadPreferences(String key) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         return sharedPreferences.getString(key, "");
     }
@@ -35,7 +36,7 @@ public class JSInterface {
     @JavascriptInterface
     public String getUID() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String value = sharedPreferences.getString("uuid_key", "");
-        return hal.getUID(value);}
-
+        String uniqueID = sharedPreferences.getString("uuid_key", "");
+        return hal.getUID(uniqueID);
+    }
 }
