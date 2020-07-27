@@ -7,7 +7,7 @@ import com.amlogic.tvclient.TVClient;
 import com.amlogic.tvutil.TVConst;
 import com.amlogic.tvutil.TVMessage;
 
-public class TvClientWapper extends TVClient {
+public class TVClientImpl extends TVClient {
     private VideoView videoView;
     private boolean connected;
 

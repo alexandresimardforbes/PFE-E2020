@@ -15,7 +15,7 @@ import com.example.noanandroidapplication.R;
 
 public class MainActivity extends Activity {
     private WebView myWebView;
-    private TvClientWapper client = new TvClientWapper();
+    private TVClientImpl client = new TVClientImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
