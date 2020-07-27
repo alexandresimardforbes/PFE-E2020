@@ -1,6 +1,7 @@
 package com.azuredev.android;
 
-public class fakeHAL extends HAL {
+public class SimulatedHAL implements HAL {
+
     @Override
     public String getRemoteValue() {
         return "bidon";

@@ -9,3 +9,23 @@ h3 {
 .container {
     text-align: center;
 }
+
+#header{
+    max-width: 30%;
+    position: fixed;
+    top:30px;
+    left: 30px;
+    padding: 5px 30px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .7);
+}
+
+#channel{
+    max-width: 30%;
+    position: fixed;
+    bottom:30px;
+    right: 30px;
+    padding: 5px 30px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .7);
+}
