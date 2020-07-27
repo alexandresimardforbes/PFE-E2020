@@ -33,6 +33,9 @@ public class JSInterface {
     }
 
     @JavascriptInterface
-    public String getUID() { return hal.getUID();}
+    public String getUID() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String value = sharedPreferences.getString("uuid_key", "");
+        return hal.getUID(value);}
 
 }
