@@ -1,5 +1,10 @@
 package com.azuredev.android;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import java.util.UUID;
+
 public class SimulatedHAL implements HAL {
 
     @Override
@@ -8,7 +13,7 @@ public class SimulatedHAL implements HAL {
     }
 
     @Override
-    public String getUID() {
-        return "Fake MAC";
+    public String getUID(String uniqueID) {
+        return uniqueID;
     }
 }
