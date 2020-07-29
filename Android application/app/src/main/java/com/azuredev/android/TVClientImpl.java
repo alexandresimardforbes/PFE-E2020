@@ -4,8 +4,10 @@ import android.content.Context;
 import android.widget.VideoView;
 
 import com.amlogic.tvclient.TVClient;
+import com.amlogic.tvutil.TVChannelParams;
 import com.amlogic.tvutil.TVConst;
 import com.amlogic.tvutil.TVMessage;
+import com.amlogic.tvutil.TVScanParams;
 
 public class TVClientImpl extends TVClient {
     private VideoView videoView;
@@ -66,4 +68,15 @@ public class TVClientImpl extends TVClient {
         this.videoView = videoView;
         connect(context);
     }
+
+    public void startScanATSC(){
+
+        TVScanParams sp;
+
+        //supposed to be faster than TVScanParams.dtvAllbandScanParams(0, TVChannelParams.MODE_ATSC);
+        sp = TVScanParams.adtvScanParams(0, TVChannelParams.MODE_ATSC);
+
+        startScan(sp);
+    }
+
 }
