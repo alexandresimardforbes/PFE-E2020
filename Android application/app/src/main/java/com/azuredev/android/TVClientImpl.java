@@ -16,6 +16,7 @@ public class TVClientImpl extends TVClient {
     @Override
     public void onConnected() {
         connected = true;
+        startScanATSC(); // we trigger the scan when connected
         updateVideoWindow();
         setInputSource(TVConst.SourceInput.SOURCE_DTV);
         openVideo();
