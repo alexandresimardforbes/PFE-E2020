@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -46,11 +49,16 @@ public class MainActivity extends Activity {
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
         client.onCreate((Context) this, videoView);
 
-//        myWebView.loadUrl("javascript: var result = window.Android.FetchJavaData(); window.DoStuff(result)");
+//      myWebView.loadUrl("javascript: var result = window.Android.FetchJavaData(); window.DoStuff(result)");
 
         hideSystemUI();
         updateUI();
-        generateUniqueID();
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            generateUniqueID();
+        } else {
+            generateMACAddress();
+        }
     }
 
     @Override
@@ -111,6 +119,22 @@ public class MainActivity extends Activity {
             String uuid = UUID.randomUUID().toString();
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("uuid_key", uuid);
+            editor.commit();
+        }
+    }
+
+    public void generateMACAddress() {
+        WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        String macAddress = info.getMacAddress();
+        if (macAddress == null) {
+            macAddress = "Device don't have mac address or wi-fi is disabled";
+        }
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String value = sharedPreferences.getString("uuid_key", "");
+        if (TextUtils.isEmpty(value)) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("uuid_key", macAddress);
             editor.commit();
         }
     }
