@@ -16,8 +16,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="js/dpad.js" async defer></script>
-  <script src="js/dpad.debug.js" async defer></script>
   <script src="js/index.js"></script>
   <script src="js/android.js"></script>
 </head>
@@ -28,10 +26,8 @@
     <h3>Azurdev</h3>
     <h3>UID : <span id="uid"></span></h3>
     <div class="container">
-      <div class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="0"
-        onclick="location.href='/request.html';">Request</div>
-      <div class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="1"
-        onclick="location.href='/information.html';">Information</div>
+      <a class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="0" href='/request.html'>Request</a>
+      <a class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="1" href='/information.html'>Information</a>
     </div>
   </div>
 </body>

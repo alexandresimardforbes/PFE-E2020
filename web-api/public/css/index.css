@@ -30,11 +30,11 @@ h3 {
     background: rgba(255, 255, 255, .7);
 }
 
-.btn.dpad-focusable:focus {
+a.btn:focus {
     outline: none;
     background-color:rgb(149, 165, 166);
 } 
 
-.btn.dpad-focusable.clickdown {
+a.btn.clickdown {
     background-color: rgb(189, 195, 199);
   }
