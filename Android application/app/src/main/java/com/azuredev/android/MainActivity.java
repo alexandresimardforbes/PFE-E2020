@@ -60,12 +60,6 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        myWebView.loadUrl("http://192.168.2.81:5000");
-        return false;
-    }
-
-    @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         hideSystemUI();
