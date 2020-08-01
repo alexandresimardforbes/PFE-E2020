@@ -18,7 +18,7 @@ import com.example.noanandroidapplication.R;
 
 import java.util.UUID;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity{
     private WebView myWebView;
     private TVClientImpl client = new TVClientImpl();
 
@@ -113,5 +113,9 @@ public class MainActivity extends Activity {
             editor.putString("uuid_key", uuid);
             editor.commit();
         }
+    }
+
+    public void startAtscScan(){
+        client.startScanATSC();
     }
 }

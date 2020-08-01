@@ -16,4 +16,8 @@ public class SimulatedHAL implements HAL {
     public String getUID(String uniqueID) {
         return uniqueID;
     }
+
+    @Override
+    public void startAtscScan() {
+    }
 }
