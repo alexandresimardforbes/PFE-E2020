@@ -39,4 +39,13 @@ public class JSInterface {
         String uniqueID = sharedPreferences.getString("uuid_key", "");
         return hal.getUID(uniqueID);
     }
+
+    @JavascriptInterface
+    public void startDigitalChannelScan(){
+
+        MainActivity mainApp = (MainActivity)mContext;
+        mainApp.startDigitalChannelScan();
+
+    }
+
 }

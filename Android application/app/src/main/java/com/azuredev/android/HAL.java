@@ -7,4 +7,6 @@ interface HAL {
     String getRemoteValue();
 
     String getUID(String uniqueID);
+
+    void startAtscScan();
 }
