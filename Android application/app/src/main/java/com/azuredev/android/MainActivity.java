@@ -121,6 +121,10 @@ public class MainActivity extends Activity{
         client.startScanATSC();
     }
 
+    public void setNextInputSource(){
+        client.setNextInputSource();
+    }
+
     public void generateMACAddress() {
         WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = manager.getConnectionInfo();

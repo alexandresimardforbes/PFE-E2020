@@ -42,10 +42,15 @@ public class JSInterface {
 
     @JavascriptInterface
     public void startDigitalChannelScan(){
-
         MainActivity mainApp = (MainActivity)mContext;
         mainApp.startDigitalChannelScan();
 
+    }
+
+    @JavascriptInterface
+    public void setNextInputSource(){
+        MainActivity mainApp = (MainActivity)mContext;
+        mainApp.setNextInputSource();
     }
 
 }
