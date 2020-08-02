@@ -70,6 +70,9 @@ public class TVClientImpl extends TVClient {
         connect(context);
     }
 
+    /**
+     *  ATSC is the digital television standard of north america
+     */
     public void startScanATSC(){
 
         TVScanParams sp;

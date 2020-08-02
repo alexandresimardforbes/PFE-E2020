@@ -117,7 +117,7 @@ public class MainActivity extends Activity{
         }
     }
 
-    public void startAtscScan(){
+    public void startDigitalChannelScan(){
         client.startScanATSC();
     }
 

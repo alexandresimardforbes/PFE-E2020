@@ -41,10 +41,10 @@ public class JSInterface {
     }
 
     @JavascriptInterface
-    public void startAtscScan(){
+    public void startDigitalChannelScan(){
 
         MainActivity mainApp = (MainActivity)mContext;
-        mainApp.startAtscScan();
+        mainApp.startDigitalChannelScan();
 
     }
 
