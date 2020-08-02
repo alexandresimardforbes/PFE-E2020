@@ -29,3 +29,12 @@ h3 {
     border-radius: 10px;
     background: rgba(255, 255, 255, .7);
 }
+
+a.btn:focus {
+    outline: none;
+    background-color:rgb(149, 165, 166);
+} 
+
+a.btn.clickdown {
+    background-color: rgb(189, 195, 199);
+  }
