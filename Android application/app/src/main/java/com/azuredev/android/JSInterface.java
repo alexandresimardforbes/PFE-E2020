@@ -44,15 +44,11 @@ public class JSInterface {
 
     @JavascriptInterface
     public void startDigitalChannelScan(){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.startDigitalChannelScan();
-
+        client.startScanATSC();
     }
 
     @JavascriptInterface
-    public void setDigitalChannelUp(){
-        client.channelUp();
-    }
+    public void setDigitalChannelUp(){ client.channelUp(); }
 
     @JavascriptInterface
     public void setDigitalChannelDown(){
@@ -66,14 +62,12 @@ public class JSInterface {
 
     @JavascriptInterface
     public void setNextInputSource(){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.setNextInputSource();
+        client.setNextInputSource();
     }
 
     @JavascriptInterface
     public void setInputSource(String source){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.setInputSource(source);
+        client.setInputSource(source);
     }
 
 }
