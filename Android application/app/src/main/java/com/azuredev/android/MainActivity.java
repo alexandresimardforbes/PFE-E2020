@@ -40,7 +40,7 @@ public class MainActivity extends Activity{
         webSettings.setJavaScriptEnabled(true);
 
         SimulatedHAL fake = new SimulatedHAL();
-        myWebView.addJavascriptInterface(new JSInterface(this, fake), "Android"); //You will access this via Android.method(args);
+        myWebView.addJavascriptInterface(new JSInterface(this, client, fake), "Android"); //You will access this via Android.method(args);
 
         myWebView.setBackgroundColor(Color.TRANSPARENT);
         //myWebView.loadUrl("http://192.168.0.16:5000"); // localhost (Charles)
