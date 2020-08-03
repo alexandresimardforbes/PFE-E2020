@@ -8,10 +8,12 @@ import android.webkit.JavascriptInterface;
 public class JSInterface {
     Context mContext;
     HAL hal;
+    TVClientImpl client;
 
-    JSInterface(Context c, HAL hal) {
+    JSInterface(Context c, TVClientImpl client, HAL hal) {
         mContext = c;
         this.hal = hal;
+        this.client = client;
     }
 
     @JavascriptInterface
@@ -45,6 +47,21 @@ public class JSInterface {
         MainActivity mainApp = (MainActivity)mContext;
         mainApp.startDigitalChannelScan();
 
+    }
+
+    @JavascriptInterface
+    public void setDigitalChannelUp(){
+        client.channelUp();
+    }
+
+    @JavascriptInterface
+    public void setDigitalChannelDown(){
+        client.channelDown();
+    }
+
+    @JavascriptInterface
+    public void setDigitalChannelById(int id){
+        client.playProgram(id);
     }
 
     @JavascriptInterface
