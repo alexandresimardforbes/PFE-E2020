@@ -12,6 +12,8 @@ import com.amlogic.tvutil.TVScanParams;
 public class TVClientImpl extends TVClient {
     private VideoView videoView;
     private boolean connected;
+    private TVConst.SourceInput[] sourceInputArray = {TVConst.SourceInput.SOURCE_DTV, TVConst.SourceInput.SOURCE_HDMI1, TVConst.SourceInput.SOURCE_HDMI2};
+
 
     @Override
     public void onConnected() {
@@ -36,6 +38,39 @@ public class TVClientImpl extends TVClient {
 
     public void setInputSource(final TVConst.SourceInput source) {
         setInputSource(source.ordinal());
+    }
+
+    public void setInputSource(String source) {
+
+        if(source.equalsIgnoreCase("HDMI1")){
+            setInputSource(TVConst.SourceInput.SOURCE_HDMI1);
+        }else if(source.equalsIgnoreCase("HDMI2")){
+            setInputSource(TVConst.SourceInput.SOURCE_HDMI2);
+        }else if(source.equalsIgnoreCase("DIGITAL")){
+            setInputSource(TVConst.SourceInput.SOURCE_DTV);
+        }
+
+    }
+
+    /**
+     * Function that loop on the source input and takes the next in array
+     */
+    public void setNextInputSource() {
+        //we get the current input
+        TVConst.SourceInput currentInput = getCurInputSource();
+
+        //we find the next input
+        for(int i =0; i < sourceInputArray.length; i++){
+            if(currentInput == sourceInputArray[i]){
+                if(i == sourceInputArray.length-1){ //if at the end of the array
+                    setInputSource(sourceInputArray[0]);
+                }else{
+                    setInputSource(sourceInputArray[i+1]);
+                }
+            }
+
+        }
+
     }
 
     public void updateVideoWindow() {
