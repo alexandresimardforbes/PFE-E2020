@@ -40,6 +40,18 @@ public class TVClientImpl extends TVClient {
         setInputSource(source.ordinal());
     }
 
+    public void setInputSource(String source) {
+
+        if(source.equalsIgnoreCase("HDMI1")){
+            setInputSource(TVConst.SourceInput.SOURCE_HDMI1);
+        }else if(source.equalsIgnoreCase("HDMI2")){
+            setInputSource(TVConst.SourceInput.SOURCE_HDMI2);
+        }else if(source.equalsIgnoreCase("DIGITAL")){
+            setInputSource(TVConst.SourceInput.SOURCE_DTV);
+        }
+
+    }
+
     /**
      * Function that loop on the source input and takes the next in array
      */
@@ -51,9 +63,9 @@ public class TVClientImpl extends TVClient {
         for(int i =0; i < sourceInputArray.length; i++){
             if(currentInput == sourceInputArray[i]){
                 if(i == sourceInputArray.length-1){ //if at the end of the array
-                    setInputSource(sourceInputArray[0].ordinal());
+                    setInputSource(sourceInputArray[0]);
                 }else{
-                    setInputSource(sourceInputArray[i+1].ordinal());
+                    setInputSource(sourceInputArray[i+1]);
                 }
             }
 

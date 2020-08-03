@@ -53,4 +53,10 @@ public class JSInterface {
         mainApp.setNextInputSource();
     }
 
+    @JavascriptInterface
+    public void setInputSource(String source){
+        MainActivity mainApp = (MainActivity)mContext;
+        mainApp.setInputSource(source);
+    }
+
 }
