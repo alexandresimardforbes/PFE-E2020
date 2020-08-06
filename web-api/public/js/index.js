@@ -15,6 +15,11 @@ $.getScript('https://luke-chang.github.io/js-spatial-navigation/spatial_navigati
     .blur()
     .first()
     .focus();
+
+    window.addEventListener('sn:enter-up', function(evt) {
+      $('#'+evt.target.id).triggerHandler("click");
+    });
+    
 });
 
 function toggleVisibility() {
