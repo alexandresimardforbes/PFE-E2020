@@ -12,18 +12,14 @@ import com.amlogic.tvutil.TVScanParams;
 public class TVClientImpl extends TVClient {
     private VideoView videoView;
     private boolean connected;
-    private TVConst.SourceInput[] sourceInputArray = {TVConst.SourceInput.SOURCE_DTV, TVConst.SourceInput.SOURCE_HDMI1, TVConst.SourceInput.SOURCE_HDMI2};
-
+    private final TVConst.SourceInput[] sourceInputArray = {TVConst.SourceInput.SOURCE_DTV, TVConst.SourceInput.SOURCE_HDMI1, TVConst.SourceInput.SOURCE_HDMI2};
 
     @Override
     public void onConnected() {
         connected = true;
-        startScanATSC(); // we trigger the scan when connected
-        updateVideoWindow();
+        // startScanATSC(); // we trigger the scan when connected
         setInputSource(TVConst.SourceInput.SOURCE_DTV);
         openVideo();
-        this.resume();
-        playProgram(4);
     }
 
     @Override
@@ -41,15 +37,13 @@ public class TVClientImpl extends TVClient {
     }
 
     public void setInputSource(String source) {
-
-        if(source.equalsIgnoreCase("HDMI1")){
+        if (source.equalsIgnoreCase("HDMI1")) {
             setInputSource(TVConst.SourceInput.SOURCE_HDMI1);
-        }else if(source.equalsIgnoreCase("HDMI2")){
+        } else if (source.equalsIgnoreCase("HDMI2")) {
             setInputSource(TVConst.SourceInput.SOURCE_HDMI2);
-        }else if(source.equalsIgnoreCase("DIGITAL")){
+        } else if (source.equalsIgnoreCase("DIGITAL")) {
             setInputSource(TVConst.SourceInput.SOURCE_DTV);
         }
-
     }
 
     /**
@@ -60,17 +54,11 @@ public class TVClientImpl extends TVClient {
         TVConst.SourceInput currentInput = getCurInputSource();
 
         //we find the next input
-        for(int i =0; i < sourceInputArray.length; i++){
-            if(currentInput == sourceInputArray[i]){
-                if(i == sourceInputArray.length-1){ //if at the end of the array
-                    setInputSource(sourceInputArray[0]);
-                }else{
-                    setInputSource(sourceInputArray[i+1]);
-                }
+        for (int i = 0; i < sourceInputArray.length; i++) {
+            if (currentInput == sourceInputArray[i]) {
+                setInputSource(sourceInputArray[(i + 1) % sourceInputArray.length]);
             }
-
         }
-
     }
 
     public void updateVideoWindow() {
@@ -106,10 +94,9 @@ public class TVClientImpl extends TVClient {
     }
 
     /**
-     *  ATSC is the digital television standard of north america
+     * ATSC is the digital television standard of north america
      */
-    public void startScanATSC(){
-
+    public void startScanATSC() {
         TVScanParams sp;
 
         //supposed to be faster than TVScanParams.dtvAllbandScanParams(0, TVChannelParams.MODE_ATSC);

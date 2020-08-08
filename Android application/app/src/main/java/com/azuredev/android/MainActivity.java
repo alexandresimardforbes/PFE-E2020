@@ -15,13 +15,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.VideoView;
 
 import com.example.noanandroidapplication.R;
 
 import java.util.UUID;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
     private WebView myWebView;
     private TVClientImpl client = new TVClientImpl();
 
@@ -40,7 +41,9 @@ public class MainActivity extends Activity{
         webSettings.setJavaScriptEnabled(true);
 
         SimulatedHAL fake = new SimulatedHAL();
-        myWebView.addJavascriptInterface(new JSInterface(this, fake), "Android"); //You will access this via Android.method(args);
+        AndroidHal android = new AndroidHal(client, this);
+
+        myWebView.addJavascriptInterface(new JSInterface(android, myWebView), "Android"); //You will access this via Android.method(args);
 
         myWebView.setBackgroundColor(Color.TRANSPARENT);
         //myWebView.loadUrl("http://192.168.0.16:5000"); // localhost (Charles)
@@ -49,22 +52,26 @@ public class MainActivity extends Activity{
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
         client.onCreate((Context) this, videoView);
 
-//      myWebView.loadUrl("javascript: var result = window.Android.FetchJavaData(); window.DoStuff(result)");
-
         hideSystemUI();
         updateUI();
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            generateUniqueID();
-        } else {
-            generateMACAddress();
+        myWebView.setWebViewClient(new MyWebViewClient());
+        myWebView.requestFocus();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == 83) {
+            myWebView.loadUrl("http://192.168.2.81:5000");
+            return false;
         }
+
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
     }
 
     @Override
@@ -106,42 +113,10 @@ public class MainActivity extends Activity{
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void generateUniqueID() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String value = sharedPreferences.getString("uuid_key", "");
-        if (TextUtils.isEmpty(value)) {
-            String uuid = UUID.randomUUID().toString();
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("uuid_key", uuid);
-            editor.commit();
-        }
-    }
-
-    public void startDigitalChannelScan(){
-        client.startScanATSC();
-    }
-
-    public void setNextInputSource(){
-        client.setNextInputSource();
-    }
-
-    public void setInputSource(String source){
-        client.setInputSource(source);
-    }
-
-    public void generateMACAddress() {
-        WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        String macAddress = info.getMacAddress();
-        if (macAddress == null) {
-            macAddress = "Device don't have mac address or wi-fi is disabled";
-        }
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String value = sharedPreferences.getString("uuid_key", "");
-        if (TextUtils.isEmpty(value)) {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("uuid_key", macAddress);
-            editor.commit();
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return false;
         }
     }
 }
