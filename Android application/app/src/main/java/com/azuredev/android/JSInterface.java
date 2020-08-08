@@ -1,31 +1,27 @@
 package com.azuredev.android;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 
 public class JSInterface {
-    Context mContext;
-    HAL hal;
+    private final WebView myWebView;
+    private final HAL hal;
 
-    JSInterface(Context c, HAL hal) {
-        mContext = c;
+    public JSInterface(HAL hal, WebView myWebView) {
+        this.myWebView = myWebView;
         this.hal = hal;
+
+//      myWebView.loadUrl("javascript: if(window);
     }
 
     @JavascriptInterface
     public void SavePreferences(String key, String value) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, value);
-        editor.commit();
+        hal.savePreferences(key, value);
     }
 
     @JavascriptInterface
     public String LoadPreferences(String key) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        return sharedPreferences.getString(key, "");
+        return hal.loadPreferences(key);
     }
 
     @JavascriptInterface
@@ -35,28 +31,46 @@ public class JSInterface {
 
     @JavascriptInterface
     public String getUID() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String uniqueID = sharedPreferences.getString("uuid_key", "");
-        return hal.getUID(uniqueID);
+        return hal.getUID();
     }
 
     @JavascriptInterface
-    public void startDigitalChannelScan(){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.startDigitalChannelScan();
-
+    public String getChannel() {
+        return hal.getChannel();
     }
 
     @JavascriptInterface
-    public void setNextInputSource(){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.setNextInputSource();
+    public void startDigitalChannelScan() {
+        hal.startDigitalChannelScan();
     }
 
     @JavascriptInterface
-    public void setInputSource(String source){
-        MainActivity mainApp = (MainActivity)mContext;
-        mainApp.setInputSource(source);
+    public void setNextInputSource() {
+        hal.setNextInputSource();
     }
 
+    @JavascriptInterface
+    public void setInputSource(String source) {
+        hal.setInputSource(source);
+    }
+
+    @JavascriptInterface
+    public void channelUp() {
+        hal.channelUp();
+    }
+
+    @JavascriptInterface
+    public void channelDown() {
+        hal.channelDown();
+    }
+
+    @JavascriptInterface
+    public void resume() {
+        hal.resume();
+    }
+
+    @JavascriptInterface
+    public void pause() {
+        hal.pause();
+    }
 }

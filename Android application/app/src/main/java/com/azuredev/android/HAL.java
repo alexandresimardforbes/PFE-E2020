@@ -1,12 +1,29 @@
 package com.azuredev.android;
 
-import android.content.Context;
 
 interface HAL {
 
     String getRemoteValue();
 
-    String getUID(String uniqueID);
+    String getUID();
 
-    void startAtscScan();
+    void savePreferences(String key, String value);
+
+    String loadPreferences(String key);
+
+    void startDigitalChannelScan();
+
+    void setNextInputSource();
+
+    void setInputSource(String source);
+
+    String getChannel();
+
+    void channelUp();
+
+    void channelDown();
+
+    void resume();
+
+    void pause();
 }

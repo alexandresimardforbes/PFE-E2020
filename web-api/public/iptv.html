@@ -17,13 +17,16 @@
 <body>
   <div class="background">
   </div> 
+  <!-- <video  class="video" autoplay disableremoteplayback="" src="https://videoplayer.telvue.com/52e1989f-3078-4785-becf-d08a1fb2d82f"></video> -->
+  <!-- <iframe src="https://videoplayer.telvue.com/player/7qWlRaZ6VN1bGk9m5qlLrPdu4-4i7cSa/stream/246?fullscreen=true&showtabssearch=false&autostart=true" frameborder="0" allow="autoplay; fullscreen"></iframe> -->
+  <video class="tagvideo" style="display: block;" webkit-playsinline="" tabindex="-1" aria-hidden="true" title="ICI ON CHANTE" src="blob:https://ici.radio-canada.ca/0545ff5b-7775-4645-943a-435eef0cd0e4">                <!-- poster="//ici.radio-canada.ca/audio-video/lib/img/extraits/HR/2015-06-03_19_30_00_EPI_0653_01.jpeg" -->                <!-- preload=" none" -->                <!--<meta name="viewport" user-scalable=no"/>-->                <!--<source src="" type="video/mp4">-->            </video>
   <div id="header">
     <h1>Input choice</h1>
     <div>
       <a class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="0" id="analogButton" onclick="startAnalogTelevision()">Analog Television</a>
     </div>
     <div>
-      <a class="btn btn-secondary btn-lg btn-block dpad-focusable disabled" disabled tabindex="0" href='/iptv.html'>IPTV</a>
+      <a class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="0" href='/iptv.html'>IPTV</a>
     </div>
     <div>
       <a class="btn btn-secondary btn-lg btn-block dpad-focusable disabled" disabled tabindex="0">HDMI source</a>
@@ -33,7 +36,7 @@
     </div>
   </div>
   <div id="channel">
-    <h2 id="channel-number">Channel 4</h2>
+    <h2>IP Tv</h2>
     <div >
       <a class="btn btn-secondary btn-lg btn-block dpad-focusable" tabindex="0" id="back" onclick="openInputMenu()">Back</a>
     </div>
